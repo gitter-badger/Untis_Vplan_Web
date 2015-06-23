@@ -88,10 +88,69 @@ $data = json_decode($json, true);
 //$this->analyze_types[1]['level']
 $index = 0;
 
-$result = uasort($data['result'], function($a, $b) {
+
+
+function findstunde($startTime, $endTime)
+{
+    /*
+    #################################
+    PROCESSING START AND END TIMES
+    #################################
+    */
+    //$startTime = $value['startTime'];
+    //$endTime = $value['endTime'];
+    $startTime = str_pad($startTime, 4, '0', STR_PAD_LEFT);
+    $endTime   = str_pad($endTime, 4, '0', STR_PAD_LEFT);
+    $chunks    = str_split($startTime, 2);
+    $chunks2   = str_split($endTime, 2);
+    $startTime = implode(':', $chunks);
+    $endTime   = implode(':', $chunks2);
+    
+    switch ($startTime) {
+        case $startTime == "08:00" && $endTime == "08:45":
+            $stunde = "1. Stunde";
+            break;
+        case $startTime == "08:50" && $endTime == "09:35":
+            $stunde = "2. Stunde";
+            break;
+        case $startTime == "09:55" && $endTime == "10:40":
+            $stunde = "3. Stunde";
+            break;
+        case $startTime == "10:45" && $endTime == "11:30":
+            $stunde = "4. Stunde";
+            break;
+        case $startTime == "11:50" && $endTime == "12:35":
+            $stunde = "5. Stunde";
+            break;
+        case $startTime == "12:40" && $endTime == "13:25":
+            $stunde = "6. Stunde";
+            break;
+        case $startTime == "13:30" && $endTime == "14:15":
+            $stunde = "7. Stunde";
+            break;
+        case $startTime == "14:20" && $endTime == "15:05":
+            $stunde = "8. Stunde";
+            break;
+        case $startTime == "15:10" && $endTime == "15:55":
+            $stunde = "9. Stunde";
+            break;
+    }
+    
+    return $stunde;
+}
+
+
+
+foreach ($data['result'] as $key => $row) {
+        $klassen[$key] = $row['kl'][0]['name'];
+        $stunden[$key] = findstunde($row['startTime'], $row['endTime']);
+    }
+array_multisort($klassen, SORT_ASC, $stunden, SORT_ASC, $data['result']);
+
+/*$result = uasort($data['result'], function($a, $b) {
   return strcmp($a['kl'][0]['name'], $b['kl'][0]['name']);
   return strcmp($a['kl']['startTime'], $b['kl']['startTime']);
-});
+});*/
 
 /*$result = uasort($data['result'], function($a, $b) {
   return strcmp($a['kl']['startTime'], $b['kl']['startTime']);

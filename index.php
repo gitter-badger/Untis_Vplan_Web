@@ -171,7 +171,7 @@ $(document).ready(function(){
 <!-- MODAL END -->
 <div id="modal2" class="modal">
     <div class="modal-content">
-      <h4>Vertretungen abfragen &bull; Datum ausw&auml;hlen</h4>
+      <h4>Datum ausw&auml;hlen</h4>
 	  <form id="bform" method="post" onsubmit="return getsubs('bform')">
 	  <input type="date" class="datepicker">
 	  <input type="hidden" name="jsessionid" id="sessid" value=""></input>
@@ -189,7 +189,7 @@ $(document).ready(function(){
 </div>
 
 <footer>
-<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleprogramms.pfweb.eu/selfmail/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleprogramms.pfweb.eu/selfmail/">Jossi Wolf</a><br>Vertretungsplan <? if ($isbeta) { ?>BETA<?}?> Version 1.0<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
+<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleprogramms.pfweb.eu/stundenplan/two/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleprogramms.pfweb.eu/stundenplan/two/">Jossi Wolf</a><br>Vertretungsplan Version 1.23<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
 </footer>
 </body>
 </html>
