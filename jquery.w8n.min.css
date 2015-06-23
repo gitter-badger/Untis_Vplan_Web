@@ -1,0 +1,33 @@
+.w8n-container {
+    padding: 0;
+    margin: 0;
+    display: block;
+    position: fixed
+}
+.top {
+    top: 10px
+}
+.right {
+    right: 0
+}
+.w8n-box {
+    //width: 435px;
+	width: 4,413793103448276%;
+    height: 27,42857142857143%;
+    position: relative;
+    display: none;
+    overflow: hidden;
+    background-color: #009688;
+    color: #FFF;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    float: right;
+    clear: right;
+    font-family: 'Segoe UI', Tahoma, Helvetica, sans-serif
+}
+.w8n-box .title {
+    font-size: 20px
+}
+.w8n-box .message {
+    font-size: 14px
+}
