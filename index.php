@@ -18,11 +18,6 @@
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../../selfmail/js/materialize.js"></script>
-<script src="libs/moment.min.js"></script>
-<script src="libs/knockout-3.2.0.js"></script>
-<!-- /dependencies -->
-<script src="material-datepicker/js/material.datepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="material-datepicker/css/material.datepicker.css">
 <script src="jquery.w8n.min.js"></script>
 <script>
 
@@ -54,6 +49,33 @@ function eraseCookie(name) {
     createCookie(name, "", -1);
 }
 
+function logout(){
+                //var data = $('form#'+id).serialize();
+				var sessid = readCookie("jsessionid");
+				//console.log(sessid);
+				var data = "jsessionid=" + sessid;
+				//alert(data);
+                //$('form#'+id).unbind('submit');                
+                $.ajax({
+                    url: "logout.php",
+                    type: 'POST',
+                    data: data,
+                    beforeSend: function() {
+                    },
+                    success: function(data, textStatus, xhr) {
+						setTimeout(function(){
+							$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', {timeout: 2500});
+						}, 4000);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        alert(errorThrown);
+                    }
+                });
+                return false;
+            }
+			
+			
+
 function getsubs(id){
                 var data = $('form#'+id).serialize();
 				//alert(data);
@@ -68,6 +90,7 @@ function getsubs(id){
 						 //console.log(data);
 						 $('#scnbtn').hide();
 						 document.getElementById("maindiv").innerHTML+= data;
+						 logout();
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -75,7 +98,7 @@ function getsubs(id){
                 });
                 return false;
             }
-
+			
 
 function sendPushNotification(id){
                 var data = $('form#'+id).serialize();
@@ -172,7 +195,7 @@ $(document).ready(function(){
 <div id="modal2" class="modal">
     <div class="modal-content">
       <h4>Datum ausw&auml;hlen</h4>
-	  <form id="bform" method="post" onsubmit="return getsubs('bform')">
+	  <form id="bform" method="post" onsubmit="return getsubs('bform');logout('bform')">
 	  <input type="date" class="datepicker">
 	  <input type="hidden" name="jsessionid" id="sessid" value=""></input>
 	  <input type="hidden" name="pertype" id="perstype" value=""></input>
@@ -189,7 +212,7 @@ $(document).ready(function(){
 </div>
 
 <footer>
-<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleprogramms.pfweb.eu/stundenplan/two/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleprogramms.pfweb.eu/stundenplan/two/">Jossi Wolf</a><br>Vertretungsplan Version 1.23<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
+<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleminimalist.de/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleminimalist.de/">Jossi Wolf</a><br>Vertretungsplan Version 1.47<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
 </footer>
 </body>
 </html>

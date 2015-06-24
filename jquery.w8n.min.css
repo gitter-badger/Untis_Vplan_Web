@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     display: block;
-    position: fixed
+    position: fixed;
 }
 .top {
     top: 10px
@@ -26,8 +26,12 @@
     font-family: 'Segoe UI', Tahoma, Helvetica, sans-serif
 }
 .w8n-box .title {
-    font-size: 20px
+	margin-top: 1.8%;
+    font-size: 1.250em;
+	margin-right: 1%;
 }
 .w8n-box .message {
-    font-size: 14px
+    font-size: 0.875em;
+	margin-right: 1%;
+	margin-bottom: 2.5%;
 }
