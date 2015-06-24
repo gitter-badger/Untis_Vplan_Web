@@ -2,7 +2,7 @@
 Responsive Javascript / PHP Implementation for Web Untis using AJAX calls. Easy User Interface using Materialize.css .
 
 ## Issues
-If you find any bugs or issues, please commit it.
+If you find any bugs or issues, please create an issue.
 
 ## Current Version
 The current Version is 1.8.
