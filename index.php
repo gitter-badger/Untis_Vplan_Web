@@ -212,7 +212,7 @@ $(document).ready(function(){
 </div>
 
 <footer>
-<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleminimalist.de/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleminimalist.de/">Jossi Wolf</a><br>Vertretungsplan Version 1.47<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
+<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleminimalist.de/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleminimalist.de/">Jossi Wolf</a><br>Vertretungsplan Version 1.8<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
 </footer>
 </body>
 </html>
