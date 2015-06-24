@@ -112,18 +112,22 @@ function sendPushNotification(id){
                     },
                     success: function(data, textStatus, xhr) {
 						 var sessid = data.substr(0,data.indexOf(";"));
-						 var o_pertype = data.substr(data.indexOf(";"), data.length);
+						 var o_pertype = data.substr(data.indexOf(";"), data.indexOf("*"));
 						 pertype = o_pertype.substr(o_pertype.length - 1)
+						 var success = data.substr(data.indexOf("*") + 1, data.length);
+						 /* ################# VARS ################# */
+						 if (success == "success") {
 						 createCookie('jsessionid',sessid,7);
 						 createCookie('pertype', pertype, 7)
 						 document.getElementById('sessid').value = sessid;
 						 document.getElementById('perstype').value = pertype;
-						 //getsubs();
-						 //Materialize.toast('Erfolgreich eingeloggt.', 4000)
 						 document.title = document.title + " - Eingeloggt";//HTMLEncode("&bull;Eingeloggt");
 						 $("#trigger").hide();
 						 document.getElementById("scnbtn").style.visibility='visible';
-						 $.w8n('Einloggen erfolgreich', 'Sie koennen jetzt die Vertretungen abfragen.', {timeout: 2500});
+						 $.w8n('Einloggen erfolgreich', 'Sie koennen jetzt die Vertretungen abfragen.', "success", {timeout: 2500});
+						 } else {
+							$.w8n('Fehler beim einloggen', 'Bitte versuchen Sie es erneut.', "error", {timeout: 2500});
+						 }
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -155,7 +159,7 @@ $(document).ready(function(){
   document.getElementById("scnbtn").style.visibility='hidden';
   });
 </script>
-<h2 align="center">Heilwig Gymnasium Vertretungsplan</h2>
+<h3 align="center">Heilwig Gymnasium Vertretungsplan</h3>
 
 <br><br>
 

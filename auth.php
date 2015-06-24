@@ -46,10 +46,11 @@ $datum = date('l jS \of F Y h:i:s A');
 if ($sessid != "") {
 	error_log("\n" . $datum . ": User Erfolgreich authentifiziert! Jsessionid: " . $sessid . "\n", 3, "whathappened.log");
 	//print "Erfolgreich eingeloggt!";
-	echo $sessid . ";" . $pertype;
+	echo $sessid . ";" . $pertype . "*success";
 }
 else {
-	print "Something went wrong. Entweder die Kombination aus Passwort und Benutzername ist nicht richtig, oder es liegt am Server. :-)";
+	echo $sessid . ";" . $pertype . "*unsuccessful";
+	//print "Something went wrong. Entweder die Kombination aus Passwort und Benutzername ist nicht richtig, oder es liegt am Server. :-)";
 }
 
 
