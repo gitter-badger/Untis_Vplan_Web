@@ -68,8 +68,12 @@ function logout(){
                     },
                     success: function(data, textStatus, xhr) {
 						setTimeout(function(){
-							document.title = "Vertretungsplan";
-							$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', "success", {timeout: 2500});
+							if (langCode == "de")
+								document.title = "Vertretungsplan";
+								$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', "success", {timeout: 2500});
+							if (langCode == "en")
+								document.title = "HWG Substitutions";
+								$.w8n('Logout successful', 'You've been logged out automatically.', "success", {timeout: 2500});
 						}, 2500);
                     },
                     error: function(xhr, textStatus, errorThrown) {
