@@ -130,10 +130,15 @@ function sendPushNotification(id){
 						 $("#trigger").hide();
 						 document.getElementById("scnbtn").style.visibility='visible';
 						 
-						 if (langCode)
-						 $.w8n('Einloggen erfolgreich', 'Sie koennen jetzt die Vertretungen abfragen.', "success", {timeout: 2500});
+						 if (langCode == "de")
+							$.w8n('Einloggen erfolgreich', 'Sie koennen jetzt die Vertretungen abfragen.', "success", {timeout: 2500});
+						 if (langCode == "en")
+							$.w8n('Login Successful', 'You can now query the substitutions.', "success", {timeout: 2500});
 						 } else {
-							$.w8n('Fehler beim einloggen', 'Bitte versuchen Sie es erneut.', "error", {timeout: 2500});
+							if (langCode == "de")
+								$.w8n('Fehler beim einloggen', 'Bitte versuchen Sie es erneut.', "error", {timeout: 2500});
+							if (langCode == "en")
+								$.w8n('Login unsuccessful', 'Please try again.', "error", {timeout: 2500});
 						 }
                     },
                     error: function(xhr, textStatus, errorThrown) {
