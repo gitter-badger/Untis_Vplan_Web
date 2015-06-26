@@ -16,11 +16,18 @@ Windows 8.1, Firefox (Developer Edition) 40.0a2
 
 OsX, Safari 8.0
 
+## Roadmap
+<b>Completed</b>  iOS 7 Support<br>
+<b>Completed</b>  Material Design<br>
+<b>Completed</b>  Login successful/unsuccessful and Logout Notifications<br>
+<b>Completed</b>  Linux Support<br>
+<b>In Progress (10%)</b>  Multi-Language Support (Indian, French, English and German)<br>
+
 ## Issues
 If you find any bugs or issues, please create an issue.
 
 ## Current Version
-The current Version is 1.8.
+The current Version is 1.96.
 
 
 ## License
