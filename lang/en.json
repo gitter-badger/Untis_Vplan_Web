@@ -8,5 +8,5 @@
 	"md_login_action": "Login",
 	"md_date"	: "Choose date",
 	"md_date_action" : "Go",
-	"footer"	: "Copyright &copy; 2015 <a href='http://littleminimalist.de/'>Jossi Wolf</a> &bull; Made by <a href='http://littleminimalist.de/'>Jossi Wolf</a><br>Vertretungsplan Version 1.96<br>Find the source on GitHub: <a href='https://github.com/jossiwolf/Untis_Vplan_Web'>Click!</a><br>We &hearts; <a href='http://materializecss.com/'>Materializecss</a>"
+	"footer"	: "Copyright &copy; 2015 <a href='http://littleminimalist.de/'>Jossi Wolf</a> &bull; Made by <a href='http://littleminimalist.de/'>Jossi Wolf</a><br>Vertretungsplan Version 2.0<br>Find the source on GitHub: <a href='https://github.com/jossiwolf/Untis_Vplan_Web'>Click!</a><br>We &hearts; <a href='http://materializecss.com/'>Materializecss</a>"
 }
