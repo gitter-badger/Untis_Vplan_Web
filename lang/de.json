@@ -1,0 +1,12 @@
+{
+    "doctitle" 	: "Heilwig Gymnasium Vertretungsplan",
+    "loginbtn" 	: "Einloggen",
+	"subbtn"	: "Vertretungen abfragen",
+	"md_login"	: "Bitte einloggen",
+	"usr"		: "Benutzername",
+	"pw"		: "Passwort",
+	"md_login_action": "Einloggen",
+	"md_date"	: "Datum ausw&auml;hlen",
+	"md_date_action" : "Los!",
+	"footer"	: "Copyright &copy; 2015 <a href='http://littleminimalist.de/'>Jossi Wolf</a> &bull; Erstellt von <a href='http://littleminimalist.de/'>Jossi Wolf</a><br>Vertretungsplan Version 1.96<br>Auch auf GitHub: <a href='https://github.com/jossiwolf/Untis_Vplan_Web'>Klick!</a><br>We &hearts; <a href='http://materializecss.com/'>Materializecss</a>"
+}

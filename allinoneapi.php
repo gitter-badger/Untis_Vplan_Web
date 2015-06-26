@@ -10,8 +10,6 @@ else {
 }
 
 
-
-
 $logout = '{"id":"ID","method":"logout","params":{},"jsonrpc":"2.0"}';
 $getteachers = '{"id":"ID","method":"getTeachers","params":{},"jsonrpc":"2.0"}';
 $getklassen = '{"id":"ID","method":"getKlassen","params":{},"jsonrpc":"2.0"}';
@@ -65,17 +63,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 curl_setopt($ch, CURLOPT_COOKIESESSION, TRUE);                                                                                                                   
 
 $result = curl_exec($ch);
-//print($result);
-//$json = json_decode($result, true); //flag true
-//$test = $json->result->name;
-echo $test; //$json->result->name;
-echo $wtoget;
-
-/*$jsondata = $result;
-$obj = json_decode($jsondata, true);
-print_r($obj['name']);
-$testno2 = $obj[name];
-echo $testno2*/
 
 $json= $result;
 $data = json_decode($json, true);
@@ -83,9 +70,7 @@ $data = json_decode($json, true);
 <br>
 <br>
 <?php
-//var_export($data, true);
-//print_r ($data['result'][1]['name']);
-//$this->analyze_types[1]['level']
+
 $index = 0;
 
 
@@ -108,32 +93,35 @@ function findstunde($startTime, $endTime)
     
     switch ($startTime) {
         case $startTime == "08:00" && $endTime == "08:45":
-            $stunde = "1. Stunde";
+            $stunde = "1.";
             break;
         case $startTime == "08:50" && $endTime == "09:35":
-            $stunde = "2. Stunde";
+            $stunde = "2.";
             break;
         case $startTime == "09:55" && $endTime == "10:40":
-            $stunde = "3. Stunde";
+            $stunde = "3.";
             break;
         case $startTime == "10:45" && $endTime == "11:30":
-            $stunde = "4. Stunde";
+            $stunde = "4.";
             break;
         case $startTime == "11:50" && $endTime == "12:35":
-            $stunde = "5. Stunde";
+            $stunde = "5.";
             break;
         case $startTime == "12:40" && $endTime == "13:25":
-            $stunde = "6. Stunde";
+            $stunde = "6.";
             break;
         case $startTime == "13:30" && $endTime == "14:15":
-            $stunde = "7. Stunde";
+            $stunde = "7.";
             break;
         case $startTime == "14:20" && $endTime == "15:05":
-            $stunde = "8. Stunde";
+            $stunde = "8.";
             break;
         case $startTime == "15:10" && $endTime == "15:55":
-            $stunde = "9. Stunde";
+            $stunde = "9.";
             break;
+		case $startTime == "16:00" && $endTime == "16:45":
+			$stunde = "10.";
+			break;
     }
     
     return $stunde;
@@ -145,7 +133,9 @@ foreach ($data['result'] as $key => $row) {
         $klassen[$key] = $row['kl'][0]['name'];
         $stunden[$key] = findstunde($row['startTime'], $row['endTime']);
     }
+if ($klassen) {
 array_multisort($klassen, SORT_ASC, $stunden, SORT_ASC, $data['result']);
+}
 
 /*$result = uasort($data['result'], function($a, $b) {
   return strcmp($a['kl'][0]['name'], $b['kl'][0]['name']);
@@ -160,13 +150,13 @@ array_multisort($klassen, SORT_ASC, $stunden, SORT_ASC, $data['result']);
 print_r($data);
 print "</pre>";*/
 //var_dump($data);
-
+if ($klassen) {
 
 echo '<table class="hoverable">';
 echo "<thead>";
 echo "<tr>";
 echo "<th>Typ</th>";
-echo "<th>Zeit</th>";
+echo "<th>Stunde</th>";
 echo "<th>Klasse</th>";
 if ($pertype == 2) {
 	echo "<th>Lehrer</th>";
@@ -180,7 +170,6 @@ echo "</thead>";
 
 echo "<tbody>";
 $s_null = "0";
-
 
 
 
@@ -215,16 +204,11 @@ if (!$value['kl']['0']['name'] == "") {
   $startTime = $value['startTime'];
   $endTime = $value['endTime'];
   
-  $startTime = str_pad($startTime, 4, '0', STR_PAD_LEFT);
-  $endTime = str_pad($endTime, 4, '0', STR_PAD_LEFT);
-  $chunks = str_split($startTime, 2);
-  $chunks2 = str_split($endTime, 2);
-  $startTime = implode(':', $chunks);
-  $endTime = implode(':', $chunks2);
   
   $hilfsint = 0;
   
-  echo "<td>" . $startTime . " - " . $endTime . "</td>";
+  echo "<td>" . findstunde($startTime, $endTime) . "</td>";
+  //echo "<td>" . $startTime . " - " . $endTime . "</td>";
   if ($value['kl']['0']['name'] == "") {
 	  $s_work = "None";
 	  echo "<td>" . $s_work . "</td>";
@@ -266,6 +250,7 @@ if (!$value['kl']['0']['name'] == "") {
 
 
 echo "</table><br><br>";
+}
 //echo "Logout: " . require('logout.php');
 
 //unset($_COOKIE['jsessionid'])

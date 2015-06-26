@@ -1,0 +1,12 @@
+{
+    "doctitle" 	: "Heilwig Gymnasium Supplenza",
+    "loginbtn" 	: "Login",
+	"subbtn"	: "Chiedere Supplenza",
+	"md_login"	: "Login",
+	"usr"		: "Nome utente",
+	"pw"		: "Password",
+	"md_login_action": "Login",
+	"md_date"	: "Scegli la data",
+	"md_date_action" : "Andare",
+	"footer"	: "Copyright &copy; 2015 <a href='http://littleminimalist.de/'>Jossi Wolf</a> &bull; Programmato per <a href='http://littleminimalist.de/'>Jossi Wolf</a><br>Vertretungsplan Versione 1.96<br>Trovare la fonte su GitHub: <a href='https://github.com/jossiwolf/Untis_Vplan_Web'>Click!</a><br>We &hearts; <a href='http://materializecss.com/'>Materializecss</a>"
+}

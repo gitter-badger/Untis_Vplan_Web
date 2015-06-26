@@ -18,8 +18,12 @@
 <body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="../../selfmail/js/materialize.js"></script>
+<script src="lang.js"></script>
 <script src="jquery.w8n.min.js"></script>
 <script>
+
+var langs = ['en', 'it', 'de'];
+langCode = navigator.language.substr (0, 2);
 
 function createCookie(name, value, days) {
     var expires;
@@ -64,8 +68,9 @@ function logout(){
                     },
                     success: function(data, textStatus, xhr) {
 						setTimeout(function(){
-							$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', {timeout: 2500});
-						}, 4000);
+							document.title = "Vertretungsplan";
+							$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', "success", {timeout: 2500});
+						}, 2500);
                     },
                     error: function(xhr, textStatus, errorThrown) {
                         alert(errorThrown);
@@ -124,6 +129,8 @@ function sendPushNotification(id){
 						 document.title = document.title + " - Eingeloggt";//HTMLEncode("&bull;Eingeloggt");
 						 $("#trigger").hide();
 						 document.getElementById("scnbtn").style.visibility='visible';
+						 
+						 if (langCode)
 						 $.w8n('Einloggen erfolgreich', 'Sie koennen jetzt die Vertretungen abfragen.', "success", {timeout: 2500});
 						 } else {
 							$.w8n('Fehler beim einloggen', 'Bitte versuchen Sie es erneut.', "error", {timeout: 2500});
@@ -135,8 +142,12 @@ function sendPushNotification(id){
                 });
                 return false;
             }
+			
+
 
 $(document).ready(function(){
+	
+	
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 	  $('#trigger').leanModal({
       dismissible: false, // Modal can be dismissed by clicking outside of the modal
@@ -157,9 +168,26 @@ $(document).ready(function(){
     }
   );
   document.getElementById("scnbtn").style.visibility='hidden';
+  
+  $(function() {
+    var language = 'italian';
+    $.ajax({
+        url: 'language.xml',
+        success: function(xml) {
+            $(xml).find('translation').each(function(){
+                var id = $(this).attr('id');
+                var text = $(this).find(language).text();
+                $("." + id).html(text);
+            });
+        }
+    });
   });
+  
+  });
+  
+  
 </script>
-<h3 align="center">Heilwig Gymnasium Vertretungsplan</h3>
+<h3 align="center" id="title" tkey="doctitle"></h3>
 
 <br><br>
 
@@ -167,38 +195,38 @@ $(document).ready(function(){
 
 <!-- Modal Trigger -->
 <form id="aform" method="post" onsubmit="return sendPushNotification('aform')">
-	<a class="waves-effect waves-light btn modal-trigger hundert" id="trigger" type="submit" href="#modal1">Einloggen</a>
+	<a class="waves-effect waves-light btn modal-trigger hundert" id="trigger" type="submit" href="#modal1" tkey="loginbtn"></a>
 </form>
 
 <form id="bform" method="post" onsubmit="return getsubs('bform')">
-<a class="waves-effect waves-light btn modal-trigger hundert" id="scnbtn" type="submit" href="#modal2">Vertretungen abfragen</a>
+<a class="waves-effect waves-light btn modal-trigger hundert" id="scnbtn" type="submit" href="#modal2" tkey="subbtn">Vertretungen abfragen</a>
 </form>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Bitte einloggen</h4>
+      <h4 tkey="md_login"></h4>
 	  <form id="aform" method="post" onsubmit="return sendPushNotification('aform')">
 	  <div class="row">
 		<div class="input-field col s12">
 			<input id="username" name="usr" type="text" class="validate" autocomplete="off">
-			<label for="username">Benutzername</label>
+			<label for="username" tkey="usr"></label>
 		</div>
 		<div class="input-field col s12">
 			<input id="password" name="pw" type="password" class="validate" autocomplete="off">
-			<label for="password">Passwort</label>
+			<label for="password" tkey="pw"></label>
 		</div>
 	   </div>
 	   </form>
 	
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Einloggen</a>
+      <a href="#!" class=" modal-action modal-close waves-effect blue-text text-darken-4 btn-flat" tkey="md_login_action"></a>
     </div>
   </div>
 <!-- MODAL END -->
 <div id="modal2" class="modal">
     <div class="modal-content">
-      <h4>Datum ausw&auml;hlen</h4>
+      <h4 tkey="md_date"></h4>
 	  <form id="bform" method="post" onsubmit="return getsubs('bform');logout('bform')">
 	  <input type="date" class="datepicker">
 	  <input type="hidden" name="jsessionid" id="sessid" value=""></input>
@@ -207,7 +235,7 @@ $(document).ready(function(){
 	
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Los!</a>
+      <a href="#!" class=" modal-action modal-close waves-effect btn-flat blue-text text-darken-4" tkey="md_date_action"></a>
     </div>
   </div>
 <!-- MODAL END -->
@@ -216,7 +244,7 @@ $(document).ready(function(){
 </div>
 
 <footer>
-<p align="center" class="footer">Copyright &copy; 2015 <a href="http://littleminimalist.de/">Jossi Wolf</a> &bull; Erstellt von <a href="http://littleminimalist.de/">Jossi Wolf</a><br>Vertretungsplan Version 1.96<br>We &hearts; <a href="http://materializecss.com/">Materializecss</a></p>
+<p align="center" class="footer" tkey="footer"></p>
 </footer>
 </body>
 </html>
