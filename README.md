@@ -1,4 +1,5 @@
 # Untis_Vplan_Web
+### Now with Multi-Language Support
 Responsive Javascript / PHP Implementation for Web Untis using AJAX calls and a PHP backend. Easy User Interface using Materialize.css .
 
 ## Testing
@@ -28,7 +29,7 @@ OsX, Safari 8.0
 If you find any bugs or issues, please create an issue.
 
 ## Current Version
-The current Version is 1.96.
+The current Version is 2.0 .
 
 
 ## License
