@@ -2,7 +2,7 @@
 Responsive Javascript / PHP Implementation for Web Untis using AJAX calls and a PHP backend. Easy User Interface using Materialize.css .
 
 ## Testing
-Untis_Vplan_Web has been tested on following devices:
+Untis_Vplan_Web has been tested and is working on following devices:
 
 Android 5.0.1, Chrome 43.0.2357.93
 
@@ -12,7 +12,9 @@ iOS 7, Safari
 
 Windows 8.1, Chrome 43.0.2357.130 m
 
-Firefox (Developer Edition), 40.0a2
+Windows 8.1, Firefox (Developer Edition) 40.0a2
+
+OsX, Safari 8.0
 
 ## Issues
 If you find any bugs or issues, please create an issue.
