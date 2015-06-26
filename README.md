@@ -21,7 +21,8 @@ OsX, Safari 8.0
 <b>Completed</b>  Material Design<br>
 <b>Completed</b>  Login successful/unsuccessful and Logout Notifications<br>
 <b>Completed</b>  Linux Support<br>
-<b>In Progress (10%)</b>  Multi-Language Support (Indian, French, English and German)<br>
+<b>Completed (Heck Yeah!)</b>  Multi-Language Support (Italian, English and German)<br>
+<b>In Progress (0%)</b> Adding more languages (Indian, Spanish and French)
 
 ## Issues
 If you find any bugs or issues, please create an issue.
