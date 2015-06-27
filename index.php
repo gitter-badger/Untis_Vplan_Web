@@ -68,12 +68,16 @@ function logout(){
                     },
                     success: function(data, textStatus, xhr) {
 						setTimeout(function(){
-							if (langCode == "de")
+							if (langCode == "de") {
 								document.title = "Vertretungsplan";
 								$.w8n('Ausloggen erfolgreich', 'Sie wurden automatisch ausgeloggt.', "success", {timeout: 2500});
-							if (langCode == "en")
+							} else if (langCode == "en") {
 								document.title = "HWG Substitutions";
-								$.w8n('Logout successful', 'You've been logged out automatically.', "success", {timeout: 2500});
+								$.w8n('Logout successful', "You've been logged out automatically.", "success", {timeout: 2500});
+							} else if (langCode == "it") {
+								document.title = "HWG Supplenza";
+								$.w8n('Logout di successo', "Sei stato disconnesso automaticamente.", "success", {timeout: 2500});
+							}
 						}, 2500);
                     },
                     error: function(xhr, textStatus, errorThrown) {
@@ -98,7 +102,11 @@ function getsubs(id){
                     success: function(data, textStatus, xhr) {
 						 //console.log(data);
 						 $('#scnbtn').hide();
-						 document.getElementById("maindiv").innerHTML+= data;
+						 if (data == "nosubs") {
+							document.getElementById("txt_nosubs").style.visibility='visible';
+						 } else {
+							document.getElementById("maindiv").innerHTML+= data;
+						 }
 						 logout();
                     },
                     error: function(xhr, textStatus, errorThrown) {
@@ -156,6 +164,8 @@ function sendPushNotification(id){
 
 $(document).ready(function(){
 	
+	document.getElementById("txt_nosubs").style.visibility='hidden';
+	document.getElementById("scnbtn").style.visibility='hidden';
 	
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
 	  $('#trigger').leanModal({
@@ -176,21 +186,7 @@ $(document).ready(function(){
       //complete: function() { alert('Closed'); } // Callback for Modal close
     }
   );
-  document.getElementById("scnbtn").style.visibility='hidden';
   
-  $(function() {
-    var language = 'italian';
-    $.ajax({
-        url: 'language.xml',
-        success: function(xml) {
-            $(xml).find('translation').each(function(){
-                var id = $(this).attr('id');
-                var text = $(this).find(language).text();
-                $("." + id).html(text);
-            });
-        }
-    });
-  });
   
   });
   
@@ -200,7 +196,7 @@ $(document).ready(function(){
 
 <br><br>
 
-<noscript>Um diese Seite nutzen zu können, müssen Sie Javascript aktivieren.</noscript>
+<noscript tkey="noscript"></noscript>
 
 <!-- Modal Trigger -->
 <form id="aform" method="post" onsubmit="return sendPushNotification('aform')">
@@ -252,8 +248,14 @@ $(document).ready(function(){
 
 </div>
 
+<div id="txt_nosubs">
+<h5 align="center"tkey="nosubs"></h5>
+<br><br>
+</div>
+
 <footer>
 <p align="center" class="footer" tkey="footer"></p>
+
 </footer>
 </body>
 </html>

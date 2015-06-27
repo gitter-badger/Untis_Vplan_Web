@@ -8,5 +8,7 @@
 	"md_login_action": "Einloggen",
 	"md_date"	: "Datum ausw&auml;hlen",
 	"md_date_action" : "Los!",
+	"nosubs"	: "Keine Vertretungen",
+	"noscript"	: "Um diese Seite nutzen zu k&ooml;nnen, m&uuml;ssen Sie Javascript aktivieren.",
 	"footer"	: "Copyright &copy; 2015 <a href='http://littleminimalist.de/'>Jossi Wolf</a> &bull; Erstellt von <a href='http://littleminimalist.de/'>Jossi Wolf</a><br>Vertretungsplan Version 2.0<br>Auch auf GitHub: <a href='https://github.com/jossiwolf/Untis_Vplan_Web'>Klick!</a><br>We &hearts; <a href='http://materializecss.com/'>Materializecss</a>"
 }

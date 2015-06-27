@@ -9,6 +9,8 @@ else {
 	$date = $_POST[date];
 }
 
+//$date = 20150626;
+
 
 $logout = '{"id":"ID","method":"logout","params":{},"jsonrpc":"2.0"}';
 $getteachers = '{"id":"ID","method":"getTeachers","params":{},"jsonrpc":"2.0"}';
@@ -66,10 +68,7 @@ $result = curl_exec($ch);
 
 $json= $result;
 $data = json_decode($json, true);
-?>
-<br>
-<br>
-<?php
+
 
 $index = 0;
 
@@ -137,19 +136,7 @@ if ($klassen) {
 array_multisort($klassen, SORT_ASC, $stunden, SORT_ASC, $data['result']);
 }
 
-/*$result = uasort($data['result'], function($a, $b) {
-  return strcmp($a['kl'][0]['name'], $b['kl'][0]['name']);
-  return strcmp($a['kl']['startTime'], $b['kl']['startTime']);
-});*/
 
-/*$result = uasort($data['result'], function($a, $b) {
-  return strcmp($a['kl']['startTime'], $b['kl']['startTime']);
-});*/
-
-/*print "<pre>";
-print_r($data);
-print "</pre>";*/
-//var_dump($data);
 if ($klassen) {
 
 echo '<table class="hoverable">';
@@ -250,7 +237,11 @@ if (!$value['kl']['0']['name'] == "") {
 
 
 echo "</table><br><br>";
+
+} else {
+	echo "nosubs";
 }
+
 //echo "Logout: " . require('logout.php');
 
 //unset($_COOKIE['jsessionid'])
