@@ -29,7 +29,7 @@ OsX, Safari 8.0
 If you find any bugs or issues, please create an issue.
 
 ## Current Version
-The current Version is 2.0 .
+The current Version is 2.1 .
 
 ## Screenshots
 ![Nexus 6](screenshots/nexus6.jpg)
