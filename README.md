@@ -32,7 +32,7 @@ If you find any bugs or issues, please create an issue.
 The current Version is 2.0 .
 
 ## Screenshots
-![IPhone 6](https://raw.github.com/jossiwolf/Untis_Vplan_Web/master/screenshots/iphone6.jpeg)
+![IPhone 6](https://raw.github.com/jossiwolf/Untis_Vplan_Web/master/screenshots/iphone6.jpg)
 
 
 ## License
